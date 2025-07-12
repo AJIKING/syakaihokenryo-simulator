@@ -1,16 +1,14 @@
 "use client";
 
-import {
+import { createContext, useContext, useId, useMemo } from "react";
+import type {
   CSSProperties,
   ComponentType,
   ReactNode,
-  createContext,
-  useContext,
-  useId,
-  useMemo,
-  type ComponentProps,
+  ComponentProps,
 } from "react";
-import { Legend, LegendProps, ResponsiveContainer, Tooltip } from "recharts";
+import { Legend, ResponsiveContainer, Tooltip } from "recharts";
+import type { LegendProps } from "recharts";
 
 import { cn } from "./utils";
 
