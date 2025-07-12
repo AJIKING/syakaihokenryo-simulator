@@ -1,69 +1,55 @@
-# React + TypeScript + Vite
+# 社会保険料計算シミュレーター
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+あなたの毎月の社会保険料（健康保険・厚生年金など）をサクッと試算できるウェブアプリです。入力した情報はブラウザ内だけで処理され、サーバーには一切送信されません。安心してお使いください！
 
-Currently, two official plugins are available:
+## 主な機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 給与と都道府県を入力するだけで即時に健康保険料・介護保険料・厚生年金保険料を計算
+- 47都道府県の最新の健康保険料率を反映
+- 結果をグラフやテーブルでわかりやすく表示
+- レスポンシブデザインでスマホでも快適
 
-## Expanding the ESLint configuration
+## 技術スタック
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| 分類      | 使用技術 |
+| ------- | ---- |
+| フロントエンド |      |
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| **React 19** (hooks, TSX) |                    |
+| ------------------------- | ------------------ |
+| ビルドツール                    | **Vite**           |
+| UI/スタイル                   | **Tailwind CSS** 3 |
+| 言語                        | **TypeScript**     |
+| パッケージマネージャ                | **pnpm**           |
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## はじめかた
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
+
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+開発サーバーは [http://localhost:5173](http://localhost:5173) がデフォルトです。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### ビルド
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm build
 ```
+
+`dist/` フォルダーが生成されます。静的ホスティング (Vercel, Netlify, GitHub Pages など) にそのままデプロイできます。
+
+## コントリビュート
+
+バグ報告・機能提案の Issue、あるいは Pull Request を歓迎します！時間が許す限り対応しますので、お気軽にどうぞ。
+
+## ライセンス
+
+MIT License — LICENSE ファイルをご覧ください。
+
+## 謝辞
+
+- UI デザインは Figma Make で生成したファイルをベースにしています。
+- 料金算出ロジックは全国健康保険協会・厚生労働省の公開データに基づいて作成していますが、計算結果の正確性を保証するものではありません。実際の保険料は所属する所属企業・年金事務所へご確認ください。
+

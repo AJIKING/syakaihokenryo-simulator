@@ -6,9 +6,8 @@ import { Github, Heart } from "lucide-react";
 
 export function Footer() {
   const handleGitHubClick = () => {
-    // 実際のGitHubリポジトリURLに置き換えてください
     window.open(
-      "https://github.com/your-username/social-insurance-calculator",
+      "https://github.com/AJIKING/syakaihokenryo-simulator",
       "_blank",
     );
   };

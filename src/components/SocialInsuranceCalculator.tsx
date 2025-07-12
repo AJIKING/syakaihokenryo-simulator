@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { Calculator, Coins, Users, Building2 } from 'lucide-react';
+import { Calculator, Coins, Building2 } from 'lucide-react';
 import { InsuranceResults } from './InsuranceResults';
 
 interface CalculationResult {
@@ -37,11 +37,53 @@ interface CalculationResult {
 }
 
 const prefectures = [
-  { value: 'tokyo', label: '東京都', healthRate: 9.81 },
-  { value: 'osaka', label: '大阪府', healthRate: 10.29 },
-  { value: 'kanagawa', label: '神奈川県', healthRate: 9.85 },
-  { value: 'aichi', label: '愛知県', healthRate: 10.01 },
-  { value: 'other', label: 'その他', healthRate: 10.00 }
+  { value: 'hokkaido', label: '北海道', healthRate: 10.21 },
+  { value: 'aomori', label: '青森県', healthRate: 9.49 },
+  { value: 'iwate', label: '岩手県', healthRate: 9.63 },
+  { value: 'miyagi', label: '宮城県', healthRate: 10.01 },
+  { value: 'akita', label: '秋田県', healthRate: 9.85 },
+  { value: 'yamagata', label: '山形県', healthRate: 9.84 },
+  { value: 'fukushima', label: '福島県', healthRate: 9.59 },
+  { value: 'ibaraki', label: '茨城県', healthRate: 9.66 },
+  { value: 'tochigi', label: '栃木県', healthRate: 9.79 },
+  { value: 'gunma', label: '群馬県', healthRate: 9.81 },
+  { value: 'saitama', label: '埼玉県', healthRate: 9.78 },
+  { value: 'chiba', label: '千葉県', healthRate: 9.77 },
+  { value: 'tokyo', label: '東京都', healthRate: 9.98 },
+  { value: 'kanagawa', label: '神奈川県', healthRate: 10.02 },
+  { value: 'niigata', label: '新潟県', healthRate: 9.35 },
+  { value: 'toyama', label: '富山県', healthRate: 9.62 },
+  { value: 'ishikawa', label: '石川県', healthRate: 9.94 },
+  { value: 'fukui', label: '福井県', healthRate: 10.07 },
+  { value: 'yamanashi', label: '山梨県', healthRate: 9.94 },
+  { value: 'nagano', label: '長野県', healthRate: 9.55 },
+  { value: 'gifu', label: '岐阜県', healthRate: 9.91 },
+  { value: 'shizuoka', label: '静岡県', healthRate: 9.85 },
+  { value: 'aichi', label: '愛知県', healthRate: 10.02 },
+  { value: 'mie', label: '三重県', healthRate: 9.94 },
+  { value: 'shiga', label: '滋賀県', healthRate: 9.89 },
+  { value: 'kyoto', label: '京都府', healthRate: 10.13 },
+  { value: 'osaka', label: '大阪府', healthRate: 10.34 },
+  { value: 'hyogo', label: '兵庫県', healthRate: 10.18 },
+  { value: 'nara', label: '奈良県', healthRate: 10.22 },
+  { value: 'wakayama', label: '和歌山県', healthRate: 10.00 },
+  { value: 'tottori', label: '鳥取県', healthRate: 9.68 },
+  { value: 'shimane', label: '島根県', healthRate: 9.92 },
+  { value: 'okayama', label: '岡山県', healthRate: 10.02 },
+  { value: 'hiroshima', label: '広島県', healthRate: 9.95 },
+  { value: 'yamaguchi', label: '山口県', healthRate: 10.20 },
+  { value: 'tokushima', label: '徳島県', healthRate: 10.19 },
+  { value: 'kagawa', label: '香川県', healthRate: 10.33 },
+  { value: 'ehime', label: '愛媛県', healthRate: 10.03 },
+  { value: 'kochi', label: '高知県', healthRate: 9.89 },
+  { value: 'fukuoka', label: '福岡県', healthRate: 10.35 },
+  { value: 'saga', label: '佐賀県', healthRate: 10.42 },
+  { value: 'nagasaki', label: '長崎県', healthRate: 10.17 },
+  { value: 'kumamoto', label: '熊本県', healthRate: 10.30 },
+  { value: 'oita', label: '大分県', healthRate: 10.25 },
+  { value: 'miyazaki', label: '宮崎県', healthRate: 9.85 },
+  { value: 'kagoshima', label: '鹿児島県', healthRate: 10.13 },
+  { value: 'okinawa', label: '沖縄県', healthRate: 9.52 },
 ];
 
 export function SocialInsuranceCalculator() {
@@ -130,7 +172,7 @@ export function SocialInsuranceCalculator() {
       <div className="text-center space-y-2">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Calculator className="size-8 text-primary" />
-          <h1 className="text-3xl">社会保険料計算</h1>
+          <h1 className="text-3xl">社会保険料計算シミュレーター</h1>
         </div>
         <p className="text-muted-foreground">
           手取り給料から毎月の社会保険料を計算します

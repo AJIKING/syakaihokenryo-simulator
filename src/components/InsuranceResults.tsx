@@ -167,6 +167,31 @@ export function InsuranceResults({ result }: InsuranceResultsProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
+                <CardTitle>年間の概算</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="text-center p-4 border rounded-lg">
+                    <p className="text-sm text-muted-foreground">年間総支給額</p>
+                    <p className="text-xl">{formatCurrency(result.grossSalary * 12)}</p>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <p className="text-sm text-muted-foreground">年間労働者負担</p>
+                    <p className="text-xl text-red-600">{formatCurrency(result.totalInsurance * 12)}</p>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <p className="text-sm text-muted-foreground">年間会社負担</p>
+                    <p className="text-xl text-orange-600">{formatCurrency(result.totalCompanyInsurance * 12)}</p>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <p className="text-sm text-muted-foreground">年間手取り額</p>
+                    <p className="text-xl text-green-600">{formatCurrency(result.netSalary * 12)}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <User className="size-5" />
                   労働者負担
@@ -356,7 +381,7 @@ export function InsuranceResults({ result }: InsuranceResultsProps) {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`}
+                      label={({ name, percent = 0 }) => `${name} ${(percent * 100).toFixed(1)}%`}
                       outerRadius={80}
                       fill="#8884d8"
                       dataKey="value"
@@ -402,32 +427,6 @@ export function InsuranceResults({ result }: InsuranceResultsProps) {
           </div>
         </TabsContent>
       </Tabs>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>年間の概算</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="text-center p-4 border rounded-lg">
-              <p className="text-sm text-muted-foreground">年間総支給額</p>
-              <p className="text-xl">{formatCurrency(result.grossSalary * 12)}</p>
-            </div>
-            <div className="text-center p-4 border rounded-lg">
-              <p className="text-sm text-muted-foreground">年間労働者負担</p>
-              <p className="text-xl text-red-600">{formatCurrency(result.totalInsurance * 12)}</p>
-            </div>
-            <div className="text-center p-4 border rounded-lg">
-              <p className="text-sm text-muted-foreground">年間会社負担</p>
-              <p className="text-xl text-orange-600">{formatCurrency(result.totalCompanyInsurance * 12)}</p>
-            </div>
-            <div className="text-center p-4 border rounded-lg">
-              <p className="text-sm text-muted-foreground">年間手取り額</p>
-              <p className="text-xl text-green-600">{formatCurrency(result.netSalary * 12)}</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }
