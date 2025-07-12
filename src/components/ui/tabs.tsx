@@ -1,6 +1,7 @@
 "use client";
 
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
+import { forwardRef } from "react";
 import { Content, List, Root, Trigger } from "@radix-ui/react-tabs";
 
 import { cn } from "./utils";

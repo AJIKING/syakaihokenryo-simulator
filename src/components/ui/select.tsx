@@ -1,6 +1,7 @@
 "use client";
 
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
+import { forwardRef } from "react";
 import { Content, Group, Icon, Item, ItemIndicator, ItemText, Label, Portal, Root, ScrollDownButton, ScrollUpButton, Separator, Trigger, Value, Viewport } from "@radix-ui/react-select";
 import {
   CheckIcon,
