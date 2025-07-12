@@ -1,7 +1,7 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import {
-  CSSProperties,
   createContext,
   useCallback,
   useContext,
@@ -11,7 +11,8 @@ import {
   type ComponentProps,
 } from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { VariantProps, cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
 
 import { useIsMobile } from "./use-mobile";
