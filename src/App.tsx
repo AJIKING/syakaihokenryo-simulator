@@ -1,5 +1,5 @@
-import { SocialInsuranceCalculator } from "../components/SocialInsuranceCalculator";
-import { Footer } from "../components/Footer";
+import { SocialInsuranceCalculator } from "./components/SocialInsuranceCalculator";
+import { Footer } from "./components/Footer";
 
 export default function App() {
   return (
