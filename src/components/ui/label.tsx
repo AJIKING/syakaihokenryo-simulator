@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import { Root } from "@radix-ui/react-label";
 
 import { cn } from "./utils";
 
@@ -15,11 +15,11 @@ import { cn } from "./utils";
  * 4. **Type‑safe props** – uses `ElementRef` / `ComponentPropsWithoutRef` helpers.
  */
 
-const Label = React.forwardRef<
-  React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+const Label = forwardRef<
+  ElementRef<typeof Root>,
+  ComponentPropsWithoutRef<typeof Root>
 >(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root
+  <Root
     ref={ref}
     data-slot="label"
     className={cn(
@@ -29,6 +29,6 @@ const Label = React.forwardRef<
     {...props}
   />
 ));
-Label.displayName = LabelPrimitive.Root.displayName;
+Label.displayName = Root.displayName;
 
 export { Label };

@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
-import * as SeparatorPrimitive from "@radix-ui/react-separator";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import { Root } from "@radix-ui/react-separator";
 
 import { cn } from "./utils";
 
@@ -11,14 +11,14 @@ import { cn } from "./utils";
  * ✨ 変更加点
  * ──────────
  * 1. **Import Path Fix** ― `@radix-ui/react-separator@1.1.2` → `@radix-ui/react-separator`。
- * 2. **`React.forwardRef`** ― ref をそのまま渡せるように強化。
+ * 2. **`forwardRef`** ― ref をそのまま渡せるように強化。
  * 3. **型引数をセーフに** ― `ElementRef` / `ComponentPropsWithoutRef` で型推論◎。
  * 4. **`displayName`** ― DevTools でコンポーネント名が判別しやすい。
  */
 
-const Separator = React.forwardRef<
-  React.ElementRef<typeof SeparatorPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
+const Separator = forwardRef<
+  ElementRef<typeof Root>,
+  ComponentPropsWithoutRef<typeof Root>
 >(
   (
     {
@@ -29,7 +29,7 @@ const Separator = React.forwardRef<
     },
     ref,
   ) => (
-    <SeparatorPrimitive.Root
+    <Root
       ref={ref}
       data-slot="separator"
       decorative={decorative}
@@ -42,6 +42,6 @@ const Separator = React.forwardRef<
     />
   ),
 );
-Separator.displayName = SeparatorPrimitive.Root.displayName;
+Separator.displayName = Root.displayName;
 
 export { Separator };
