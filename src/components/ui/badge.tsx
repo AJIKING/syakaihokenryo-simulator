@@ -1,6 +1,7 @@
 "use client";
 
-import * as React from "react";
+import type { ComponentPropsWithoutRef } from "react";
+import { forwardRef } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -37,7 +38,7 @@ const badgeVariants = cva(
   },
 );
 
-type BadgeProps = React.ComponentPropsWithoutRef<"span"> &
+type BadgeProps = ComponentPropsWithoutRef<"span"> &
   VariantProps<typeof badgeVariants> & {
     /**
      * If `true`, renders the component passed via Radix `Slot` instead of a `<span>`.
@@ -45,7 +46,7 @@ type BadgeProps = React.ComponentPropsWithoutRef<"span"> &
     asChild?: boolean;
   };
 
-const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
+const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, variant, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "span";
 
