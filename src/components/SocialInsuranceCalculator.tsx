@@ -171,19 +171,28 @@ export function SocialInsuranceCalculator() {
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <div className="text-center space-y-2">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <Calculator className="size-8 text-primary" />
-          <h1 className="text-3xl">社会保険料計算シミュレーター</h1>
+          <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full shadow-lg">
+            <Calculator className="size-8 text-white" />
+          </div>
+          <h1 className="text-2xl font-bold tracking-tight">
+            社会保険料計算シミュレーター
+          </h1>
         </div>
         <p className="text-muted-foreground">
           手取り給料から毎月の社会保険料を計算します
         </p>
       </div>
 
+
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Coins className="size-5" />
-            給料情報の入力
+            <div className="p-2 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg">
+              <Coins className="size-5 text-white" />
+            </div>
+            <span className="text-foreground">
+              給料情報の入力
+            </span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -230,7 +239,10 @@ export function SocialInsuranceCalculator() {
           </div>
           
           <div className="flex gap-2">
-            <Button onClick={calculateInsurance} className="flex-1">
+            <Button 
+              onClick={calculateInsurance} 
+              className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white shadow-lg"
+            >
               <Calculator className="size-4 mr-2" />
               計算する
             </Button>
@@ -244,10 +256,14 @@ export function SocialInsuranceCalculator() {
       {result && <InsuranceResults result={result} />}
 
       <Card>
-        <CardHeader>
+         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Building2 className="size-5" />
-            注意事項
+            <div className="p-2 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg">
+              <Building2 className="size-5 text-white" />
+            </div>
+            <span className="text-foreground">
+              注意事項
+            </span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">

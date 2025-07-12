@@ -115,25 +115,29 @@ export function InsuranceResults({ result }: InsuranceResultsProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <TrendingUp className="size-5" />
-            計算結果
+            <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg">
+              <TrendingUp className="size-5 text-white" />
+            </div>
+            <span className="text-foreground">
+              計算結果
+            </span>
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="text-center p-4 bg-blue-50 border rounded-lg shadow-sm">
               <p className="text-sm text-muted-foreground">推定総支給額</p>
-              <p className="text-2xl">{formatCurrency(result.grossSalary)}</p>
+              <p className="text-2xl text-blue-700">{formatCurrency(result.grossSalary)}</p>
             </div>
-            <div className="text-center p-4 bg-red-50 rounded-lg">
+            <div className="text-center p-4 bg-red-50 border rounded-lg shadow-sm">
               <p className="text-sm text-muted-foreground">労働者負担</p>
               <p className="text-2xl text-red-600">{formatCurrency(result.totalInsurance)}</p>
             </div>
-            <div className="text-center p-4 bg-orange-50 rounded-lg">
+            <div className="text-center p-4 bg-orange-50 border rounded-lg shadow-sm">
               <p className="text-sm text-muted-foreground">会社負担</p>
               <p className="text-2xl text-orange-600">{formatCurrency(result.totalCompanyInsurance)}</p>
             </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg">
+            <div className="text-center p-4 bg-green-50 border rounded-lg shadow-sm">
               <p className="text-sm text-muted-foreground">手取り額</p>
               <p className="text-2xl text-green-600">{formatCurrency(result.netSalary)}</p>
             </div>
@@ -141,15 +145,23 @@ export function InsuranceResults({ result }: InsuranceResultsProps) {
 
           <Separator className="my-6" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-sm text-muted-foreground">
-            <div>
-              <strong>都道府県:</strong> {result.prefecture}
+          <div className="flex flex-wrap gap-4 mb-6 text-sm">
+            {/* 都道府県 */}
+            <div className="flex items-center gap-1 px-3 py-2 bg-muted rounded-lg border">
+              <strong className="text-foreground">都道府県:</strong>
+              <span>{result.prefecture}</span>
             </div>
-            <div>
-              <strong>年齢:</strong> {result.age}歳
+
+            {/* 年齢 */}
+            <div className="flex items-center gap-1 px-3 py-2 bg-muted rounded-lg border">
+              <strong className="text-foreground">年齢:</strong>
+              <span>{result.age}歳</span>
             </div>
-            <div>
-              <strong>社会保険料合計:</strong> {formatCurrency(result.totalInsurance + result.totalCompanyInsurance)}
+
+            {/* 社会保険料合計 */}
+            <div className="flex items-center gap-1 px-3 py-2 bg-muted rounded-lg border">
+              <strong className="text-foreground">社会保険料合計:</strong>
+              <span>{formatCurrency(result.totalInsurance + result.totalCompanyInsurance)}</span>
             </div>
           </div>
         </CardContent>
@@ -163,91 +175,96 @@ export function InsuranceResults({ result }: InsuranceResultsProps) {
           <TabsTrigger value="charts">グラフ</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="breakdown" className="space-y-4">
+         <TabsContent value="breakdown" className="space-y-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Card>
+            <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle>年間の概算</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="text-center p-4 border rounded-lg">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="text-center p-4 bg-blue-50 border rounded-lg">
                     <p className="text-sm text-muted-foreground">年間総支給額</p>
-                    <p className="text-xl">{formatCurrency(result.grossSalary * 12)}</p>
+                    <p className="text-xl text-blue-700">{formatCurrency(result.grossSalary * 12)}</p>
                   </div>
-                  <div className="text-center p-4 border rounded-lg">
+                  <div className="text-center p-4 bg-red-50 border rounded-lg">
                     <p className="text-sm text-muted-foreground">年間労働者負担</p>
                     <p className="text-xl text-red-600">{formatCurrency(result.totalInsurance * 12)}</p>
                   </div>
-                  <div className="text-center p-4 border rounded-lg">
+                  <div className="text-center p-4 bg-orange-50 border rounded-lg">
                     <p className="text-sm text-muted-foreground">年間会社負担</p>
                     <p className="text-xl text-orange-600">{formatCurrency(result.totalCompanyInsurance * 12)}</p>
                   </div>
-                  <div className="text-center p-4 border rounded-lg">
+                  <div className="text-center p-4 bg-green-50 border rounded-lg">
                     <p className="text-sm text-muted-foreground">年間手取り額</p>
                     <p className="text-xl text-green-600">{formatCurrency(result.netSalary * 12)}</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-            <Card>
+          <div className="flex flex-col md:flex-row gap-4 w-full">
+              <Card className="flex-1 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <User className="size-5" />
-                  労働者負担
+                  <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
+                    <User className="size-5 text-white" />
+                  </div>
+                  <span>労働者負担</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {comparisonData.map((item, index) => (
                   <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
                     <div className="flex items-center gap-2">
-                      <item.icon className="size-4 text-blue-500" />
+                      <item.icon className="size-4 text-cyan-600" />
                       <span>{item.name}</span>
                     </div>
-                    <Badge variant="secondary">{formatCurrency(item.employee)}</Badge>
+                    <Badge>{formatCurrency(item.employee)}</Badge>
                   </div>
                 ))}
                 <div className="pt-2 border-t">
                   <div className="flex items-center justify-between">
                     <span>合計</span>
-                    <Badge>{formatCurrency(result.totalInsurance)}</Badge>
+                    <Badge className="bg-cyan-600 text-white">{formatCurrency(result.totalInsurance)}</Badge>
                   </div>
                 </div>
               </CardContent>
             </Card>
-
-            <Card>
+            <Card className="flex-1 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Building className="size-5" />
-                  会社負担
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {comparisonData.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-2">
-                      <item.icon className="size-4 text-orange-500" />
-                      <span>{item.name}</span>
+                  <div className="p-2 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-lg">
+                    <Building className="size-5 text-white" />
+                  </div>
+                    <span>会社負担</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {comparisonData.map((item, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div className="flex items-center gap-2">
+                        <item.icon className="size-4 text-orange-600" />
+                        <span>{item.name}</span>
+                      </div>
+                      <Badge>{formatCurrency(item.company)}</Badge>
                     </div>
-                    <Badge variant="secondary">{formatCurrency(item.company)}</Badge>
+                  ))}
+                  <div className="pt-2 border-t">
+                    <div className="flex items-center justify-between">
+                      <span>合計</span>
+                      <Badge className="bg-orange-600 text-white">{formatCurrency(result.totalCompanyInsurance)}</Badge>
+                    </div>
                   </div>
-                ))}
-                <div className="pt-2 border-t">
-                  <div className="flex items-center justify-between">
-                    <span>合計</span>
-                    <Badge>{formatCurrency(result.totalCompanyInsurance)}</Badge>
-                  </div>
-                </div>
-              </CardContent>
+                </CardContent>
             </Card>
-          </div>
+            </div>
+            </div>
         </TabsContent>
 
         <TabsContent value="comparison" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>労働者負担 vs 会社負担</CardTitle>
+              <CardTitle>労働者負担 と 会社負担</CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>
@@ -269,8 +286,10 @@ export function InsuranceResults({ result }: InsuranceResultsProps) {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Percent className="size-5" />
-                適用保険料率
+                <div className="p-2 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg">
+                  <Percent className="size-5 text-white" />
+                </div>
+                <span>適用保険料率</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
