@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { Anchor, Content, Portal, Root, Trigger } from "@radix-ui/react-popover";
 
 import { cn } from "./utils";

@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentProps, useMemo } from "react";
+import { useMemo, type ComponentProps } from "react";
 import { Range, Root, Thumb, Track } from "@radix-ui/react-slider";
 
 import { cn } from "./utils";

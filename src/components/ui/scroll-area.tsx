@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { Corner, Root, ScrollAreaScrollbar, ScrollAreaThumb, Viewport } from "@radix-ui/react-scroll-area";
 
 import { cn } from "./utils";

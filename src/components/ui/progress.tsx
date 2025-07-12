@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { Indicator, Root } from "@radix-ui/react-progress";
 
 import { cn } from "./utils";
